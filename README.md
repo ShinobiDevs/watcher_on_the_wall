@@ -30,7 +30,7 @@ Or install it yourself as:
 ### Options
 
 * `unique_key` - this will be used as a Redis key to and will be checked and locked accordingly by the running scripts. defaults to a random 60 chars long string.
-* `auto_expire_in_seconds` - specifiy the number of seconds to auto-expire the mutex key to ensure it is not helf forever if something happens, if you specify `false` no expiry internal will be set (not recommended). defaults to 300 seconds (5 minutes).
+* `auto_expire_in_seconds` - specifiy the number of seconds to auto-expire the mutex key to ensure it is not helf forever if something happens, if you specify `false` no expiry interval will be set (not recommended). defaults to 300 seconds (5 minutes).
 
 The lock and key will be released and deleted once the run is over.
 
