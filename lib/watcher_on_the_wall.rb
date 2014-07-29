@@ -24,14 +24,21 @@ module WatcherOnTheWall
       }.merge(options)
 
       key = configuration[:unique_key]
-      expire_in = configuration[:auto_expire_in_seconds].to_i
+      if configuration[:auto_expire_in_seconds] == false
+        expire_in = false
+      end
+        expire_in = configuration[:auto_expire_in_seconds].to_i
+      end
 
       self.watch(key)
       if self.exists(key) == true
+
         raise Exceptions::AlreadyRunning
       end
       self.multi do
-        self.setex(key, expire_in, true)
+        if expire_in != false
+          self.setex(key, expire_in, true)
+        end
       end
 
       begin
