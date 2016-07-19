@@ -26,7 +26,7 @@ module WatcherOnTheWall
       key = configuration[:unique_key]
       if configuration[:auto_expire_in_seconds] == false
         expire_in = false
-      end
+      else
         expire_in = configuration[:auto_expire_in_seconds].to_i
       end
 
